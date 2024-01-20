@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Raleway;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #006400;
+  color: white;
+  height: 60px;
+  font-size: 13px;
+    font-family:Raleway;
+
+}
+
+
+.container {
+position:absolute;
+  width: 80%;
+   right:2%;
+  top:10%;
+  font-family:Times New Roman;
+}
+
+.user-info {
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.label {
+  min-width: 150px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+  width: calc(100% - 10px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+.sidenav {
+  height: 100vh;
+  width: 250px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+background-color:#FAF9F6;
+  overflow-x: hidden;
+  padding-top: 20px;
+  font-family: Raleway;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
+  float: left; 
+}
+
+.sidenav a {
+  margin-right:20px;
+  padding: 6px 15px 15px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #000;
+  display: block;
+}
+
+.sidenav a img {
+  margin-right: 10px;
+}
+
+.sidenav a:hover {
+  color: #006400;
+}
+.sidenav a.active {
+        position: relative;
+
+}
+.sidenav a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 47%;
+    transform: translateX(-53%);
+    border-bottom: 2px solid #006400; /* Adjust the thickness of the underline */
+    width: 2cm; /* Adjust the length of the underline */
+}
+.sidenav .user-profile {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidenav .user-profile img {
+            width: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+h1{
+font-size:18px;
+top:0;
+position:absolute;
+left:4%;
+}
+.sidenav a.logout {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 20px;
+  color: #000;
+  text-decoration: none;
+  display: block;
+}
+.sidenav a.logout:hover {
+  color: #006400;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="topnav">
+ <img src="cvsulogo.png" alt="gal">
+  <H1>Cavite State University-<br> Imus Extension Services</H1></div>
+
+<div class="sidenav">
+ <div class="user-profile">
+            <img src="user.png" alt="User Profile"><br>
+            <span>User's Full Name</span>
+			<p style="font-size:13px;"><i>Teacher </i></p>
+        </div>
+		<hr>
+  <a href="dashboard.html"  ><img src="dashboard.png" alt="DB">Dashboard</a>
+  <a href="activity.html"><img src="activity.png" alt="ACT">Activity</a>
+    <a href="profile.html" class="active"><img src="profile.png" alt="PROF">Profile</a>
+  <a href="#"><img src="gallery (2).png" alt="gal">Gallery</a>
+    <a href="#"><img src="settings.png" alt="set">Settings</a>
+	   <a href="#" class="logout"> <img src="logout.png" alt="log">Log Out</a>
+
+
+</div>
+<div class="container">
+  <h2>User Information</h2>
+  <div class="user-info">
+    <label for="firstName" class="label">First Name:</label>
+    <input type="text" id="firstName" readonly>
+
+    <label for="lastName" class="label">Last Name:</label>
+    <input type="text" id="lastName" readonly>
+
+    <label for="middleInitial" class="label">Middle Initial:</label>
+    <textarea id="middleInitial" readonly></textarea>
+
+    <label for="gender" class="label">Gender:</label>
+    <input type="text" id="gender" readonly>
+
+    <label for="age" class="label">Age:</label>
+    <textarea id="age" readonly></textarea>
+
+    <label for="dob" class="label">Date of Birth:</label>
+    <input type="text" id="dob" readonly>
+
+    <label for="placeOfBirth" class="label">Place of Birth:</label>
+    <textarea id="placeOfBirth" readonly></textarea>
+
+    <label for="information" class="label">Information:</label>
+    <textarea id="information" readonly></textarea>
+
+    <label for="address" class="label">Address:</label>
+    <input type="text" id="address" readonly>
+
+    <label for="contactNumber" class="label">Contact Number:</label>
+    <input type="text" id="contactNumber" readonly>
+  </div>
+</div>
+
+</body>
+</html>
+

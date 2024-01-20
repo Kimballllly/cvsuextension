@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+body {
+  font-family: Raleway;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #006400;
+  color: white;
+  height: 60px;
+  font-size: 13px;
+  Font-family: Raleway;
+}
+
+.container {
+  position: absolute;
+  width: 80%;
+  right: 2%;
+  top: 10%;
+  font-family: Times New Roman;
+  display: flex;
+}
+
+.sidenav {
+  height: 100vh;
+  width: 250px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #FAF9F6;
+  overflow-x: hidden;
+  padding-top: 20px;
+  font-family: Raleway;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
+  float: left;
+}
+
+.sidenav a {
+  margin-right: 20px;
+  padding: 6px 15px 15px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #000;
+  display: block;
+}
+
+.sidenav a img {
+  margin-right: 10px;
+}
+
+.sidenav a:hover {
+  color: #006400;
+}
+.sidenav a.active {
+  position: relative;
+}
+.sidenav a.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 49%;
+  transform: translateX(-51%);
+  border-bottom: 2px solid #006400; /* Adjust the thickness of the underline */
+  width: 2.5cm; /* Adjust the length of the underline */
+}
+.sidenav .user-profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidenav .user-profile img {
+  width: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.project-card {
+  background: linear-gradient(to right, #87CEEB, #90EE90);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+  width: 300px;
+  flex: 1;
+  position: relative;
+  cursor:pointer;
+}
+
+.project-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
+  color: white;
+  
+}
+
+.project-info {
+  font-size: 30px;
+  font-weight: Bold;
+}
+
+.icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 24px;
+}
+   .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    .closeButton {
+      cursor: pointer;
+      color: #006400;
+      font-size: 18px;
+      font-weight: bold;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+	.modal-content {
+  padding: 20px;
+  
+}
+ button {
+    /* Style for both Add Task and Remove Task buttons */
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: #006400;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  ul {
+    /* Style for the task list */
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    /* Style for each task item */
+    margin: 5px;
+  }
+
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  td{
+  padding:10px;
+  }
+  #finishedTasksList {
+    list-style-type: circle; /* Use 'disc' for filled circles, 'circle' for unfilled circles, etc. */
+	padding:10px;
+  }
+  h1{
+font-size:18px;
+top:0;
+position:absolute;
+left:4%;
+}
+.sidenav a.logout {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 20px;
+  color: #000;
+  text-decoration: none;
+  display: block;
+}
+.sidenav a.logout:hover {
+  color: #006400;
+}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+ <img src="cvsulogo.png" alt="gal">
+  <H1>Cavite State University-<br> Imus Extension Services</H1></div>
+
+<div class="sidenav">
+  <div class="user-profile">
+    <img src="user.png" alt="User Profile"><br>
+    <span>User's Full Name</span>
+    <p style="font-size:13px;"><i>Teacher </i></p>
+  </div>
+  <hr>
+  <a href="dashboard.html"  ><img src="dashboard.png" alt="DB">Dashboard</a>
+  <a href="activity.html" class="active"><img src="activity.png" alt="ACT">Activity</a>
+  <a href="profile.html"><img src="profile.png" alt="PROF">Profile</a>
+  <a href="#"><img src="gallery (2).png" alt="gal">Gallery</a>
+  <a href="#"><img src="settings.png" alt="set">Settings</a>
+     <a href="#" class="logout"> <img src="logout.png" alt="log">Log Out</a>
+
+</div>
+<div class="container">
+  <div class="project-card">
+    <i class="icon fas fa-info-circle"></i>
+    <div class="project-title">Pending Tasks</div>
+    <div class="project-info">
+      <p>11</p>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <i class="icon fas fa-spinner"></i>
+    <div class="project-title">Ongoing Tasks </div>
+    <div class="project-info">
+      <p>8</p>
+    </div>
+  </div>
+  <div class="project-card">
+    <i class="icon fas fa-check"></i>
+    <div class="project-title">Finished Tasks</div>
+    <div class="project-info">
+      <p>3</p>
+    </div>
+  </div>
+</div>
+
+<div id="modalPendingTasks" class="modal">
+  <div class="modal-content">
+    <span class="closeButton" onclick="closeModal('modalPendingTasks')">&times;</span>
+    <h2>Pending Tasks</h2>
+    <p>You have pending tasks that require attention:</p>
+    <ul id="taskList">
+      <li>
+        <span>Check Homeworks</span>
+		        <input type="checkbox" onchange="removeOnCheckboxChange(this)">
+
+      </li>
+	  <li>
+    <span>Grade assignments.</span>
+    <input type="checkbox" onchange="removeOnCheckboxChange(this)">
+  </li>
+  <li>
+    <span>Prepare lesson plans.</span>
+    <input type="checkbox" onchange="removeOnCheckboxChange(this)">
+  </li>
+  <li>
+    <span>Parent-teacher conference preparation.</span>
+    <input type="checkbox" onchange="removeOnCheckboxChange(this)">
+  </li>
+  <li>
+    <span>Update classroom bulletin board.</span>
+    <input type="checkbox" onchange="removeOnCheckboxChange(this)">
+  </li>
+  <li>
+    <span>Review and update curriculum.</span>
+    <input type="checkbox" onchange="removeOnCheckboxChange(this)">
+  </li>
+  <li>
+    <span>Create and grade assessments.</span>
+    <input type="checkbox" onchange="removeOnCheckboxChange(this)">
+  </li>
+  <li>
+    <span>Professional development research.</span>
+    <input type="checkbox" onchange="removeOnCheckboxChange(this)">
+  </li>
+  <li>
+    <span>Organize classroom resources.</span>
+    <input type="checkbox" onchange="removeOnCheckboxChange(this)">
+  </li>
+  <li>
+    <span>Update online learning platform.</span>
+    <input type="checkbox" onchange="removeOnCheckboxChange(this)">
+  </li>
+  <li>
+    <span>Prepare for special events.</span>
+    <input type="checkbox" onchange="removeOnCheckboxChange(this)">
+  </li>
+  <li>
+    <span>Student feedback and reflection.</span>
+    <input type="checkbox" onchange="removeOnCheckboxChange(this)">
+  </li>
+    </ul>
+    <button onclick="addTask()">Add Task</button>
+    <button onclick="removeTask()">Remove Selected Tasks</button>
+  </div>
+</div>
+
+  <div id="modalOngoingTasks" class="modal">
+  <span class="closeButton" onclick="closeModal('modalOngoingTasks')">&times;</span>
+  <h2>Ongoing Tasks Details</h2>
+  <p>Details for Ongoing Tasks:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Check Homeworks</td>
+        <td>In progress</td>
+        <td><input type="checkbox" onchange="removeOnCheckboxChange(this)"></td>
+      </tr>
+      <tr>
+        <td>Empty my to-do list</td>
+        <td> In progress</td>
+        <td><input type="checkbox" onchange="removeOnCheckboxChange(this)"></td>
+      </tr>
+	   <tr>
+        <td>Finish Lesson Plan</td>
+        <td>In review</td>
+        <td><input type="checkbox" onchange="removeOnCheckboxChange(this)"></td>
+      </tr>
+	  <tr>
+  <td>
+    <span>Grade Assignments</span>
+  </td>
+  <td>
+    <span>In progress</span>
+  </td>
+  <td>
+    <input type="checkbox" onchange="removeOnCheckboxChange(this)">
+  </td>
+</tr>
+<tr>
+  <td>
+    <span>Prepare Lesson Plans</span>
+  </td>
+  <td>
+    <span>In progress</span>
+  </td>
+  <td>
+    <input type="checkbox" onchange="removeOnCheckboxChange(this)">
+  </td>
+</tr>
+<tr>
+  <td>
+    <span>Parent-Teacher Conference Preparation</span>
+  </td>
+  <td>
+    <span>In progress</span>
+  </td>
+  <td>
+    <input type="checkbox" onchange="removeOnCheckboxChange(this)">
+  </td>
+</tr>
+<tr>
+  <td>
+    <span>Update Classroom Bulletin Board</span>
+  </td>
+  <td>
+    <span>In progress</span>
+  </td>
+  <td>
+    <input type="checkbox" onchange="removeOnCheckboxChange(this)">
+  </td>
+</tr>
+<tr>
+  <td>
+    <span>Review and Update Curriculum</span>
+  </td>
+  <td>
+    <span>In progress</span>
+  </td>
+  <td>
+    <input type="checkbox" onchange="removeOnCheckboxChange(this)">
+  </td>
+</tr>
+    </tbody>
+  </table>
+</div>
+
+  <div id="modalFinishedTasks" class="modal">
+  <span class="closeButton" onclick="closeModal('modalFinishedTasks')">&times;</span>
+  <h2>Finished Tasks Details</h2>
+  <p>Finished Tasks:</p>
+  <ul id="finishedTasksList">
+  </ul>
+</div>
+ <script>
+ 
+ var currentOpenModal = null;
+ 
+  function showModal(modalId) {
+  // Close the currently open modal
+  if (currentOpenModal) {
+    closeModal(currentOpenModal);
+  }
+
+  // Display the new modal
+  document.getElementById(modalId).style.display = 'block';
+  currentOpenModal = modalId;
+
+  // Check if the modal is the Finished Tasks modal and then populate tasks
+  if (modalId === 'modalFinishedTasks') {
+    populateFinishedTasks();
+  }
+}
+
+  function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+	  currentOpenModal = null;
+
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Attach click event listeners to each project card
+    var projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(function (card) {
+      card.addEventListener('click', function () {
+        var modalId = 'modal' + card.querySelector('.project-title').textContent.replace(/\s+/g, '');
+        showModal(modalId);
+      });
+    });
+  });
+
+  function addTask() {
+    var taskList = document.getElementById("taskList");
+    var newTask = prompt("Enter task description:");
+
+    if (newTask) {
+      var listItem = document.createElement("li");
+      listItem.innerHTML = newTask + ' <input type="checkbox" onchange="removeOnCheckboxChange(this)">';
+      taskList.appendChild(listItem);
+    }
+  }
+
+  function removeTask() {
+    var taskList = document.getElementById("taskList");
+    var checkboxes = taskList.querySelectorAll('input[type="checkbox"]:checked');
+
+    checkboxes.forEach(function (checkbox) {
+      var listItem = checkbox.parentNode;
+      taskList.removeChild(listItem);
+    });
+  }
+
+  function removeOnCheckboxChange(checkbox) {
+    if (checkbox.checked) {
+      var row = checkbox.closest("tr");
+      row.parentNode.removeChild(row);
+    }
+  }
+
+  var finishedTasksData = [
+    "Review Reports",
+    "Prepare Presentation",
+    "Submit Documentation",
+    // Add more tasks as needed
+  ];
+
+  // Function to populate finished tasks in the modal
+  function populateFinishedTasks() {
+    var finishedTasksList = document.getElementById("finishedTasksList");
+
+    // Clear existing list items
+    finishedTasksList.innerHTML = "";
+
+    // Add tasks to the list
+    finishedTasksData.forEach(function (task) {
+      var listItem = document.createElement("li");
+      listItem.textContent = task;
+      finishedTasksList.appendChild(listItem);
+    });
+  }
+</script>
+
+</body>
+</html>
